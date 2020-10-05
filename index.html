@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <title>NotasApp</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="shortcut icon" href="notasapplogo.PNG" type="image/PNG">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="columns content-body">
+        <div class="btnmenucontrol">
+            <button class="button" onclick="menuControl()">
+                <span class="icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
+        </div>
+        <div id="menuPrincipal" class="column is-one-quarter">
+            <div class="menu-container">
+                <aside class="menu">
+                    <div class="menu-header">
+                        <h2 class="menu-title"><i class="fas fa-sticky-note"></i> MENÚ</h2>
+                    </div>
+                    <p class="menu-label">
+                        Cabecera
+                    </p>
+                    <ul class="menu-list">
+                        <li>
+                            <div class="field is-grouped">
+                                <p class="control is-expanded">
+                                    <input id="inputTitle" class="input is-rounded" type="text" placeholder="Título">
+                                </p>
+                                <p class="control">
+                                    <button class="button is-info" onclick="addTitle()"><i
+                                            class="fas fa-arrow-right"></i></button>
+                                </p>
+                            </div>
+                            <p id="titleFail" class="help is-danger"></p>
+                        </li>
+                        <li>
+                            <div class="field is-grouped">
+                                <p class="control is-expanded">
+                                    <input id="inputSubTitle" class="input is-rounded" type="text"
+                                        placeholder="Subtítulo">
+                                </p>
+                                <p class="control">
+                                    <button class="button is-info" onclick="addSubtitle()"><i
+                                            class="fas fa-arrow-right"></i></button>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="menu-label">
+                        Añadir una nueva nota
+                    </p>
+                    <ul class="menu-list">
+                        <li>
+                            <div class="field">
+                                <div class="control">
+                                    <input id="inputHeader" class="input" type="text" placeholder="Encabezado">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <textarea id="inputContent" class="textarea" placeholder="Contenido"></textarea>
+                                </div>
+                            </div>
+                            <p id="contentFail" class="help is-danger"></p>
+                            <div class="field mt-4">
+                                <div class="control">
+                                    <button onclick="addNote()" class="button is-success">Añadir</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="menu-label">
+                        Datos del alumno
+                    </p>
+                    <ul class="menu-list">
+                        <li>
+                            <div class="field">
+                                <p class="control is-expanded">
+                                    <input id="inputApellidos" class="input is-rounded" type="text" placeholder="Apellidos">
+                                </p>
+                            </div>
+                            <div class="field is-grouped">
+                                <p class="control is-expanded">
+                                    <input id="inputOrden" class="input is-rounded" type="number" placeholder="N° de orden">
+                                </p>
+                                <p class="control">
+                                    <button class="button is-info" onclick="addAlumno()"><i
+                                            class="fas fa-arrow-right"></i></button>
+                                </p>
+                            </div>
+                            <p id="alumnoFail" class="help is-danger"></p>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="column">
+            <section class="hero is-dark">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 id="title" class="title">
+                            Título
+                        </h1>
+                        <h2 id="subtitle" class="subtitle">
+                            Subtítulo de la nota
+                        </h2>
+                    </div>
+                </div>
+            </section>
+            <div class="modal" id="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <input id="code" type="text" hidden>
+                    <div class="field">
+                        <div class="control">
+                            <input id="inputModal" class="input" type="text" placeholder="Encabezado">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <textarea id="textAreaModal" class="textarea" placeholder="Contenido"></textarea>
+                        </div>
+                    </div>
+                    <p id="contentFail" class="help is-danger"></p>
+                    <div class="field mt-4">
+                        <div class="control buttons">
+                            <button onclick="confirmNote()" class="button is-success">Confirmar Cambios</button>
+                            <button onclick="cancelUpdate()" class="button is-danger">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul id="list" class="list-content">
+
+            </ul>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="content footer-content">
+            <p>
+                Desarrollado por <strong>@frenrihr_code</strong>
+            </p>
+            <p>
+                <strong>
+                    <span id="fecha"></span> <em id="alumno">Alumno</em>
+                </strong>
+            </p>
+        </div>
+    </footer>
+    <script src="notes.js"></script>
+</body>
+
+</html>
